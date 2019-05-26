@@ -27,18 +27,39 @@ namespace dotnet
 
         public static Matrix CreateSampleMatrix()
         {
-            var matrix = new Matrix(3);
+            var matrix = new Matrix(3, 4);
             matrix.Content[0][0] = 1;
             matrix.Content[0][1] = 5;
             matrix.Content[0][2] = 4;
+
+            matrix.Content[0][3] = 19;
 
             matrix.Content[1][0] = -9;
             matrix.Content[1][1] = 3;
             matrix.Content[1][2] = -8;
 
+            matrix.Content[1][3] = -99;
+
             matrix.Content[2][0] = -1;
             matrix.Content[2][1] = 9;
             matrix.Content[2][2] = 5;
+
+            matrix.Content[2][3] = 999;
+
+            return matrix;
+        }
+
+        public Matrix Transpose()
+        {
+            var matrix = new Matrix(this.NumberOfCols, this.NumberOfRows);
+
+            for (int i = 0; i < NumberOfRows; i++)
+            {
+                for (int j = 0; j < NumberOfCols; j++)
+                {
+                    matrix.Content[j][i] = Content[i][j];
+                }
+            }
 
             return matrix;
         }
@@ -72,8 +93,11 @@ namespace dotnet
             {
                 throw new Exception("Not a square matrix!");
             }
+
             if(NumberOfCols == 1)
+            {
                 return Content[0][0];
+            }
 
             int row = 0;
             double det = 0;
@@ -185,7 +209,7 @@ namespace dotnet
                 builder.Append("|");
                 foreach (var value in row)
                 {
-                    builder.Append($"{String.Format("{0:0.0}", value)}|");
+                    builder.Append($"{String.Format(" {0: 000.00;-000.00}", value)} |");
                 }
                 builder.AppendLine();
             }

@@ -14,8 +14,15 @@ namespace dotnet
             System.Console.WriteLine("Matrix:");
             System.Console.WriteLine(matrix.ToString());
 
-            System.Console.WriteLine("Transposed matrix:");
-            System.Console.WriteLine(matrix.Transpose().ToString());
+            matrix = matrix + 5;
+
+            System.Console.WriteLine("Added 5:");
+            System.Console.WriteLine(matrix.ToString());
+
+            matrix = matrix - 10;
+
+            System.Console.WriteLine("Substracted 10:");
+            System.Console.WriteLine(matrix.ToString());
 
             System.Console.WriteLine($"Is square? {matrix.IsSquare}");
             System.Console.WriteLine($"Is unit? {matrix.IsUnit}");

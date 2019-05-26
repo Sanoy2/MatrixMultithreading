@@ -201,6 +201,23 @@ namespace dotnet
             return true;
         }
 
+        public static Matrix operator +(Matrix matrix, int number)
+        {
+            for (int i = 0; i < matrix.NumberOfRows; i++)
+            {
+                for (int j = 0; j < matrix.NumberOfCols; j++)
+                {
+                    matrix.Content[i][j] += number;
+                }
+            }
+            return matrix;
+        }
+
+        public static Matrix operator -(Matrix matrix, int number)
+        {
+            return matrix + (-number);
+        }
+
         public override string ToString()
         {
             var builder = new StringBuilder();

@@ -9,6 +9,8 @@ namespace dotnet
             Console.WriteLine("Start");
             int size = 3;
             var matrix = Matrix.CreateRandomMatrix(size);
+            matrix = Matrix.CreateSampleMatrix();
+
             System.Console.WriteLine(matrix.ToString());
             System.Console.WriteLine($"Is square? {matrix.IsSquare}");
             System.Console.WriteLine($"Is unit? {matrix.IsUnit}");
@@ -17,8 +19,6 @@ namespace dotnet
             {
                 System.Console.WriteLine($"Det: {matrix.Determinant}");
             }
-
-            System.Console.WriteLine(matrix.CreateSubmatrix(2,2).ToString());
         
             Console.WriteLine("Finish");
         }

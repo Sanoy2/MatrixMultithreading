@@ -25,6 +25,24 @@ namespace dotnet
             }
         }
 
+        public static Matrix CreateSampleMatrix()
+        {
+            var matrix = new Matrix(3);
+            matrix.Content[0][0] = 1;
+            matrix.Content[0][1] = 5;
+            matrix.Content[0][2] = 4;
+
+            matrix.Content[1][0] = -9;
+            matrix.Content[1][1] = 3;
+            matrix.Content[1][2] = -8;
+
+            matrix.Content[2][0] = -1;
+            matrix.Content[2][1] = 9;
+            matrix.Content[2][2] = 5;
+
+            return matrix;
+        }
+
         public Matrix CreateSubmatrix(int row, int col)
         {
             var newMatrix = new Matrix(NumberOfRows - 1);
@@ -57,8 +75,17 @@ namespace dotnet
             if(NumberOfCols == 1)
                 return Content[0][0];
 
+            int row = 0;
+            double det = 0;
+            for (int col = 0; col < NumberOfCols; col++)
+            {
+                var minor = this.CreateSubmatrix(row, col);
+                var minorDet = minor.Determinant;
+
+                det += Math.Pow(-1, row + col) * Content[row][col] * minorDet;
+            }
             
-            return 0;
+            return det;
         }
 
         private Matrix(int rows)

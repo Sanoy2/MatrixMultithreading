@@ -14,7 +14,23 @@ class Matrix:
         return len(self.content[0])
 
     def determinant(self):
-        return 0
+        if self.is_square() == False:
+            raise("Not a square matrix!")
+        if self.number_of_cols() == 1:
+            return self.content[0][0]
+
+        row = 0
+        col = 0 
+        det = 0
+
+        while col < self.number_of_cols():
+            minor = self.create_submatrix(row, col)
+            minor_det = minor.determinant()
+
+            det = det + ((-1) ** (row + col)) * self.content[row][col] * minor_det
+            col = col + 1
+
+        return det
 
     def create_submatrix(self, row, col):
         mat = Matrix(self.number_of_rows() - 1, self.number_of_cols() - 1)
@@ -41,6 +57,9 @@ class Matrix:
             k = k + 1
             i = i + 1
         return mat
+
+    def is_square(self):
+        return self.number_of_cols() == self.number_of_rows()
 
     def __str__(self):
         result = ""

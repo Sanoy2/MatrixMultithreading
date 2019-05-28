@@ -7,7 +7,6 @@
 class Matrix
 {
     private:
-        
         void InitMatrix(int rows, int cols);
         void InitMatrix(int rows);
 

@@ -30,16 +30,11 @@ void Matrix::InitMatrix(int rows)
 {
     InitMatrix(rows, rows);
 }
-
+ 
 void Matrix::InitMatrix(int rows, int cols)
-{
-    for (unsigned int i = 0; i < rows; i++)
-    {
-        for (unsigned int j = 0; j < cols; j++)
-        {
-            content[i].push_back(0);
-        }   
-    }
+{ 
+    std::vector<std::vector<double>> v(rows, std::vector<double>(cols, 0));
+    content = v;
 }
 
 int Matrix::NumberOfRows()

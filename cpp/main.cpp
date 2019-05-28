@@ -9,9 +9,11 @@ int main(int argc, char** argv)
     std::cout << "start" << std::endl;
 
     Matrix matrix;
-    cout << matrix.content.size() << endl;  
-    cout << matrix.content[0].size() << endl;
+    // cout << matrix.content.size() << endl;  
+    // cout << matrix.content[0].size() << endl;
 
+    cout << matrix.ToString() << endl;
+    
 
     std::cout << "finish" << std::endl;
     return 0;

@@ -39,12 +39,16 @@ void Matrix::InitMatrix(int rows, int cols)
 
 int Matrix::NumberOfRows()
 {
-
+    return content.size();
 }
 
 int Matrix::NumberOfCols()
 {
-
+    if(NumberOfRows() == 0)
+    {
+        return 0;
+    }
+    return content[0].size();
 }
 
 std::string Matrix::ToString()

@@ -1,14 +1,19 @@
 #ifndef MATRIX_HH
 #define MATRIX_HH
 
-#include <iostream>
 #include <vector>
+#include <cstdlib>
+#include <ctime>
+#include <string>
 
 class Matrix
 {
     private:
+        int min_value = -9;
+        int max_value = 9;
         void InitMatrix(int rows, int cols);
         void InitMatrix(int rows);
+        double GetRandomNumber();
 
     public:
         Matrix();           // sample matrix

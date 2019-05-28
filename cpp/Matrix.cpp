@@ -51,6 +51,23 @@ int Matrix::NumberOfCols()
     return content[0].size();
 }
 
+void Matrix::Randomize()
+{
+    for (int i = 0; i < NumberOfRows(); i++)
+    {
+        for (int j = 0; j < NumberOfCols(); j++)
+        {
+            content[i][j] = GetRandomNumber();
+        }
+    }
+}
+
+double Matrix::GetRandomNumber()
+{
+    double f = (double)rand() / RAND_MAX;
+    return min_value + f * (max_value - min_value);
+}
+
 std::string Matrix::ToString()
 {
     std::string result;

@@ -37,6 +37,18 @@ void Matrix::InitMatrix(int rows, int cols)
     content = v;
 }
 
+Matrix Matrix::CreateSubmatrix(int row, int col)
+{
+    Matrix newMatrix(NumberOfRows() - 1, NumberOfCols() - 1);
+
+    return newMatrix;
+}
+
+double Matrix::Determinant()
+{
+    return 0.0;
+}
+
 int Matrix::NumberOfRows()
 {
     return content.size();
@@ -49,6 +61,11 @@ int Matrix::NumberOfCols()
         return 0;
     }
     return content[0].size();
+}
+
+bool Matrix::IsSquare()
+{
+    return NumberOfRows() == NumberOfCols();
 }
 
 void Matrix::Randomize()

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace dotnet
 {
@@ -6,33 +7,17 @@ namespace dotnet
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Start");
-            int size = 10;
-            var matrix = Matrix.CreateRandomMatrix(size);
-            matrix = Matrix.CreateSampleMatrix();
+            int matrixesNumber = Int32.Parse(args[0]);
+            int matrixesDimension = Int32.Parse(args[1]);
 
-            System.Console.WriteLine("Matrix:");
-            System.Console.WriteLine(matrix.ToString());
+            List<Matrix> matrixes = new List<Matrix>();
 
-            matrix = matrix + 5;
-
-            System.Console.WriteLine("Added 5:");
-            System.Console.WriteLine(matrix.ToString());
-
-            matrix = matrix - 10;
-
-            System.Console.WriteLine("Substracted 10:");
-            System.Console.WriteLine(matrix.ToString());
-
-            System.Console.WriteLine($"Is square? {matrix.IsSquare}");
-            System.Console.WriteLine($"Is unit? {matrix.IsUnit}");
-
-            if(matrix.IsSquare)
+            for (int i = 0; i < matrixesNumber; i++)
             {
-                System.Console.WriteLine($"Det: {matrix.Determinant}");
+                matrixes.Add(Matrix.CreateRandomMatrix(matrixesDimension));
             }
-        
-            Console.WriteLine("Finish");
+
+            var determinants = Matrix.Determinants(matrixes);
         }
     }
 }

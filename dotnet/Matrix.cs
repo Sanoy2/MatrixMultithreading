@@ -87,6 +87,16 @@ namespace dotnet
             return newMatrix;
         }
 
+        public static List<double> Determinants(IEnumerable<Matrix> matrixes)
+        {
+            List<double> determinants = new List<double>();
+            foreach (var matrix in matrixes)
+            {
+                determinants.Add(matrix.Determinant);
+            }
+            return determinants;
+        }
+
         private double ComputeDeterminant()
         {
             if(!IsSquare)

@@ -65,15 +65,11 @@ function python_tests()
     resultFile=$python_result_file
     write_labels $resultFile
 
-    source env/bin/activate
-
     command="python main.py $matrixesNumber $matrixesDimension"
     echo Running command: $command
     wait
     perform_test "$command" $resultFile $repetitions  
     wait
-
-    deactivate
 
     cd ..
     echo -e "Python tests finished\n"

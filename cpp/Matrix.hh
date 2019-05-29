@@ -5,6 +5,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <string>
+#include <cmath>
 
 class Matrix
 {
@@ -16,10 +17,12 @@ class Matrix
         double GetRandomNumber();
 
     public:
+        std::vector<std::vector<double>> content;
+
         Matrix();           // sample matrix
         Matrix(int);
         Matrix(int, int);
-        std::vector<std::vector<double>> content;
+        
         void Randomize();
 
         int NumberOfRows();
@@ -31,5 +34,7 @@ class Matrix
 
         std::string ToString();
 };
+
+std::vector<double> Determinants(std::vector<Matrix> matrixes);
 
 #endif

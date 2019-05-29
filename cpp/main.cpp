@@ -1,4 +1,6 @@
 #include <iostream>
+#include <vector>
+
 #include "Matrix.hh"
 
 using namespace std;
@@ -6,20 +8,20 @@ using namespace std;
 int main(int argc, char** argv) 
 {
     std::srand(std::time(nullptr));
-    std::cout << "start" << std::endl;
 
-    Matrix matrix;
-    cout << "Rows: " << matrix.NumberOfRows() << endl;  
-    cout << "Cols: " << matrix.NumberOfCols() << endl;
-    cout << "Det : " << matrix.Determinant() << endl;
-    cout << matrix.ToString() << endl;
+    int numberOfMatrixes = strtol(argv[1], NULL, 10);
+    int matrixDimensions =  strtol(argv[2], NULL, 10);
 
-    Matrix submatrix = matrix.CreateSubmatrix(0,0);
-    cout << "Rows: " << submatrix.NumberOfRows() << endl;  
-    cout << "Cols: " << submatrix.NumberOfCols() << endl;
-    cout << "Det : " << submatrix.Determinant() << endl;
-    cout << submatrix.ToString() << endl;
+    std::vector<Matrix> matrixes;
+    std::vector<double> dets;
 
-    std::cout << "finish" << std::endl;
+    for (int i = 0; i < numberOfMatrixes; i++)
+    {
+        Matrix matrix(matrixDimensions);
+        matrix.Randomize();
+        matrixes.push_back(matrix);
+    }
+    
+    dets = Determinants(matrixes);    
     return 0;
 }

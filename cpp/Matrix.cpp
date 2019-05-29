@@ -41,12 +41,47 @@ Matrix Matrix::CreateSubmatrix(int row, int col)
 {
     Matrix newMatrix(NumberOfRows() - 1, NumberOfCols() - 1);
 
+    for (int i = 0, k = 0; i < NumberOfRows(); i++, k++)
+    {
+        if(i == row)
+            ++i;
+        if(i == NumberOfRows())
+            continue;
+        for (int j = 0, l = 0; j < NumberOfCols(); j++, l++)
+        {
+            if(j == col)
+                ++j;
+            if(j == NumberOfCols())
+                continue;
+            newMatrix.content[k][l] = content[i][j];
+        }
+    }
+
     return newMatrix;
 }
 
 double Matrix::Determinant()
 {
-    return 0.0;
+    if(!IsSquare())
+    {
+        throw "Not a square matrix!";
+    }
+
+    if(NumberOfCols() == 1)
+    {
+        return content[0][0];
+    }
+
+    int row = 0;
+    double det = 0;
+    for (int col = 0; col < NumberOfCols(); col++)
+    {
+        Matrix minor = CreateSubmatrix(row, col);
+        double minorDet = minor.Determinant();
+        det += pow(-1, row + col) * content[row][col] * minorDet;
+    }
+    
+    return det;
 }
 
 int Matrix::NumberOfRows()
@@ -99,4 +134,16 @@ std::string Matrix::ToString()
         result += row + "|\n";
     }
     return result;
+}
+
+std::vector<double> Determinants(std::vector<Matrix> matrixes)
+{
+    std::vector<double> determinants;
+
+    for (int i = 0; i < matrixes.size(); i++)
+    {
+        determinants.push_back(matrixes[i].Determinant());
+    }
+
+    return determinants;
 }

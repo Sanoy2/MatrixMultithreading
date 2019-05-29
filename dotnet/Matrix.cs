@@ -6,8 +6,8 @@ namespace dotnet
 {
     public class Matrix
     {
-        private static readonly int maxValue = 9;
-        private static readonly int minValue = -9;
+        private static readonly int maxValue = 10000;
+        private static readonly int minValue = -10000;
 
         public List<List<double>> Content { get; set; }
         public bool IsSquare { get => CheckIfIsSquare(); }

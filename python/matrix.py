@@ -82,8 +82,8 @@ def create_random_matrix(rows):
     return create_random_matrix(rows, rows)
 
 def create_random_matrix(rows, cols):
-    min_value = -9
-    max_value = 9
+    min_value = -10000
+    max_value = 10000
     mat = Matrix(rows, cols)
     for row in range(mat.number_of_rows()):
         for col in range(mat.number_of_cols()):
@@ -93,8 +93,6 @@ def create_random_matrix(rows, cols):
     return mat
 
 def create_sample_matrix():
-    min_value = -9
-    max_value = 9
     mat = Matrix(3, 3)
 
     mat.content[0][0] = 1

@@ -2,4 +2,7 @@
 
 clear
 
-python main.py
+matrixes=10
+dim=10
+
+python main.py $matrixes $dim

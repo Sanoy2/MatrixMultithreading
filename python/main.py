@@ -1,12 +1,16 @@
-# from matrix import Matrix
+import sys
+
 import matrix
 
 def main():
-    print("start")
-    mat = matrix.create_sample_matrix()
-    print(mat.__str__())
-    print("det: {0}".format(mat.determinant()))
-    print("finish") 
+    matrixes_number = int(sys.argv[1])
+    matrixes_dimension = int(sys.argv[2])
+    matrixes = []
+
+    for i in range(matrixes_number):
+        matrixes.append(matrix.create_random_matrix(matrixes_dimension, matrixes_dimension))
+
+    dets = matrix.determinants(matrixes)
 
 
 if __name__ == "__main__":

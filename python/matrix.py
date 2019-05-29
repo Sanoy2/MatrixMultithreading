@@ -1,5 +1,13 @@
 import random
 
+def determinants(matrixes):
+    dets = []
+    for matrix in matrixes:
+        dets.append(matrix.determinant())
+
+    return dets
+    
+
 class Matrix:
     def __init__(self, rows, cols):
         self.init_content(rows, cols)

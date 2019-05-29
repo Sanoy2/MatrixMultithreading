@@ -5,9 +5,8 @@ separator=";"
 
 repetitions=10 # how many time the test should be performed
 
-chars_to_combine="abc"
-max_password_length=4
-file_with_digests=~/Thesis/BruteForce/just_numbers_max_4.txt
+matrixesNumber=1
+matrixesDimension=1
 
 python_result_file="../results/pythonResults.txt"
 dotnet_result_file="../results/dotnetResults.txt"
@@ -68,7 +67,7 @@ function python_tests()
 
     source env/bin/activate
 
-    command="python main.py $chars_to_combine $max_password_length $file_with_digests"
+    command="python main.py $matrixesNumber $matrixesDimension"
     echo Running command: $command
     wait
     perform_test "$command" $resultFile $repetitions  
@@ -89,7 +88,7 @@ function dotnet_tests()
     resultFile=$dotnet_result_file
     write_labels $resultFile
 
-    command="./dotnet $chars_to_combine $max_password_length $file_with_digests"
+    command="./dotnet $matrixesNumber $matrixesDimension"
     echo Running command: $command
     wait
     perform_test "$command" $resultFile $repetitions  
@@ -107,7 +106,7 @@ function cpp_tests()
     resultFile=$cpp_result_file
     write_labels $resultFile
 
-    command="./a.out $chars_to_combine $max_password_length $file_with_digests"
+    command="./a.out $matrixesNumber $matrixesDimension"
     echo Running command: $command
     wait
     perform_test "$command" $resultFile $repetitions  

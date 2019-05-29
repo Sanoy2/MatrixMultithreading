@@ -1,31 +1,27 @@
 #include <iostream>
 #include <vector>
-#include <map>
-#include "Hasher.hh"
-#include "PasswordGetter.hh"
-#include "PasswordBreaker.hh"
-#include "ResultSaver.hh"
+
+#include "Matrix.hh"
+
+using namespace std;
 
 int main(int argc, char** argv) 
 {
-    std::string chars = std::string(argv[1]);
-    int maxLength = strtol(argv[2], NULL, 10);
-    std::string filepath = std::string(argv[3]);
+    std::srand(std::time(nullptr));
 
-    PasswordGetter passwordGetter;
-    std::vector<std::string> digests = passwordGetter.GetPasswordsHashes(filepath);
+    int numberOfMatrixes = strtol(argv[1], NULL, 10);
+    int matrixDimensions =  strtol(argv[2], NULL, 10);
+
+    std::vector<Matrix> matrixes;
+    std::vector<double> dets;
+
+    for (int i = 0; i < numberOfMatrixes; i++)
+    {
+        Matrix matrix(matrixDimensions);
+        matrix.Randomize();
+        matrixes.push_back(matrix);
+    }
     
-    std::string resultsPath = "../results/cppBroken.txt";
-
-    // for (int i = 0; i < digests.size(); i++)
-    // {
-    //     std::cout << digests[i] << std::endl;
-    // }
-
-    PasswordBreaker passwordBreaker(chars, digests, maxLength);
-    std::map<std::string, std::string> brokenPasswords = passwordBreaker.StartBreaking();
-
-    ResultSaver resultSaver;
-    resultSaver.SaveResults(resultsPath, brokenPasswords);
+    dets = Determinants(matrixes);    
     return 0;
 }

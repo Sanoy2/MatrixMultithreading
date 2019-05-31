@@ -22,12 +22,18 @@ namespace dotnet
             }
 
             var pairLists = splitList(pairs, numberOfThreads);
-            foreach (var p in pairLists)
-            {
-                tasks.Add(Task.Run(() => Job(p)));
-            }
 
-            Task.WaitAll(tasks.ToArray());
+            // foreach (var p in pairLists)
+            // {
+            //     tasks.Add(Task.Run(() => Job(p)));
+            // }
+
+            // Task.WaitAll(tasks.ToArray());
+
+            Parallel.ForEach(pairLists, smallPairList =>
+            {
+                Job(smallPairList);
+            });
 
             foreach (var p in pairLists)
             {

@@ -1,34 +1,36 @@
 import threading
 
 import matrix
-
+from pair import pair
 
 def compute_determinants(matrixes, number_of_threads):
     print("{0} threads".format(number_of_threads))
 
-    threads = []
+    pairs = []
     dets = []
-    matrixes2d = split_list(matrixes, number_of_threads)
-    output_from_threads = [None] * number_of_threads
+    for matrix in matrixes:
+        pairs.append(pair(matrix))
+
+    threads = []
+    pairs_lists = split_list(pairs, number_of_threads)
 
     for i in range(number_of_threads):
-        t = threading.Thread(target=job, args=(matrixes2d[i], output_from_threads, i))
+        t = threading.Thread(target=job, args=(pairs_lists[i],))
         threads.append(t)
         t.start()
 
     for i in range(number_of_threads):
         threads[i].join()
 
-    for collection in output_from_threads:
-        for element in collection:
-            dets.append(element)
+    for p in pairs:
+        dets.append(p.det)
 
     return dets
 
 
-def job(matrixes, output, i):
-    dets = matrix.determinants(matrixes)
-    output[i] = dets
+def job(pairs):
+    for pair in pairs:
+        pair.det = pair.matrix.determinant()
 
 
 def split_list(alist, wanted_parts=1):

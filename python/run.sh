@@ -2,8 +2,8 @@
 
 # clear
 
-matrixes=12
-dim=8
-threads=12
+matrixes=4
+dim=2
+threads=2
 
 python main.py $matrixes $dim $threads

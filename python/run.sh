@@ -1,8 +1,9 @@
 #!/bin/bash
 
-clear
+# clear
 
-matrixes=10
-dim=10
+matrixes=12
+dim=8
+threads=12
 
-python main.py $matrixes $dim
+python main.py $matrixes $dim $threads

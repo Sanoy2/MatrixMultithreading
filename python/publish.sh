@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cp main.py ~/Thesis/Testing/Matrix/python/
-cp matrix.py ~/Thesis/Testing/Matrix/python/
+cp main.py ~/Thesis/Testing/MatrixMultithreading/python/
+cp matrix.py ~/Thesis/Testing/MatrixMultithreading/python/
 
 wait 

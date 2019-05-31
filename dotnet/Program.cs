@@ -21,7 +21,7 @@ namespace dotnet
             if(numberOfThreads > 1)
             {
                 System.Console.WriteLine("Multi");
-                var dets = MatrixMultithreads.Determinants(matrixes, numberOfThreads);
+                var dets = MatrixMultithreads.Determinants(matrixes, numberOfThreads).Result;
             }
             else
             {

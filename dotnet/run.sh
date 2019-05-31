@@ -1,7 +1,7 @@
 #!/bin/bash
 
-matrixes=4
+matrixes=40
 dim=10
-threads=1
+threads=10
 
 dotnet run $matrixes $dim $threads

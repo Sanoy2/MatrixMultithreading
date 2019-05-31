@@ -7,7 +7,7 @@ namespace dotnet
 {
     public class MatrixMultithreads
     {
-        public static List<double> Determinants(IEnumerable<Matrix> matrixes, int numberOfThreads)
+        public static async Task<List<double>> Determinants(IEnumerable<Matrix> matrixes, int numberOfThreads)
         {
             var pairs = new List<Pair>();
             var tasks = new List<Task>();
@@ -24,9 +24,10 @@ namespace dotnet
             var pairLists = splitList(pairs, numberOfThreads);
             foreach (var p in pairLists)
             {
-                Task task = new Task(() => Job(p));
-                tasks.Add(task);
-                task.Start();
+                // Task task = new Task(() => Job(p));
+                // tasks.Add(task);
+                // task.Start();
+                tasks.Add(Task.Run(() => Job(p)));
             }
 
             Task.WaitAll(tasks.ToArray());

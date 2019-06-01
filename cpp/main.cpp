@@ -2,6 +2,8 @@
 #include <vector>
 
 #include "Matrix.hh"
+#include "MatrixesListDeterminant.hh"
+#include "Pair.hh"
 
 using namespace std;
 
@@ -11,6 +13,7 @@ int main(int argc, char** argv)
 
     int numberOfMatrixes = strtol(argv[1], NULL, 10);
     int matrixDimensions =  strtol(argv[2], NULL, 10);
+    int numberOfThreads =  strtol(argv[3], NULL, 10);
 
     std::vector<Matrix> matrixes;
     std::vector<double> dets;
@@ -23,5 +26,23 @@ int main(int argc, char** argv)
     }
     
     dets = Determinants(matrixes);    
+
+    for (int i = 0; i < matrixes.size(); i++)
+    {
+        std::cout << dets[i] << std::endl;
+        std::cout << matrixes[i].ToString() << std::endl;
+    }
+
+    MatrixesListDeterminant matrixesCounter;
+
+    std::vector<Pair> pairs = matrixesCounter
+        .ComputeDeterminantsMultithreading(matrixes, numberOfThreads);
+
+    for (int i = 0; i < pairs.size(); i++)
+    {
+        std::cout << pairs[i].ToString() << std::endl;
+    }
+
+
     return 0;
 }

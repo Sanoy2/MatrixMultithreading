@@ -10,8 +10,8 @@
 class Matrix
 {
     private:
-        int min_value = -10000;
-        int max_value = 10000;
+        int min_value = -9; // 10 000
+        int max_value = 9; // -10 000
         void InitMatrix(int rows, int cols);
         void InitMatrix(int rows);
         double GetRandomNumber();

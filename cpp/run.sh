@@ -1,6 +1,7 @@
 #!/bin/bash
 
-matrixes=10
-dim=10
+matrixes=2
+dim=2
+numberOfThreads=1
 
-./a.out $matrixes $dim
+./a.out $matrixes $dim $numberOfThreads

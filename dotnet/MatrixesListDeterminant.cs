@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -5,8 +6,18 @@ namespace dotnet
 {
     public class MatrixesListDeterminant
     {
+        public static List<Pair> Determinants(List<Matrix> matrixes)
+        {
+            return Determinants(matrixes, 1);
+        }
+
         public static List<Pair> Determinants(List<Matrix> matrixes, int numberOfThreads)
         {
+            if(numberOfThreads < 1)
+            {
+                throw new Exception("Number of threads lower than 1!");
+            }
+
             var tasks = new List<Task>();
 
             var smallPairLists = CreatePairs(matrixes, numberOfThreads);
@@ -25,9 +36,12 @@ namespace dotnet
 
             Task.WaitAll(tasks.ToArray());
 
-            // Parallel.ForEach(smallPairLists, smallPairList =>
+            // Parallel.ForEach(pairList, smallPairList =>
             // {
-            //     Job(smallPairList);
+                // foreach (var pair in pairList)
+                // {
+                //     pair.Determinant = pair.Matrix.Determinant;
+                // }
             // });
 
             return MergePairs(smallPairLists);

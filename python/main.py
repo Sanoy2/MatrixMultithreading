@@ -1,7 +1,8 @@
 import sys
 
 import matrix
-import multi_determinant as md
+import pair
+import matrixes_list_determinant as mld
 
 
 def main():
@@ -13,16 +14,10 @@ def main():
     for i in range(matrixes_number):
         matrixes.append(matrix.create_random_matrix(matrixes_dimension, matrixes_dimension))
 
-    # for m in matrixes:
-    #     print(m.__str__())
+    pairs = mld.compute_determinants_multithreading(matrixes, number_of_threads)
 
-    dets = []
-    if number_of_threads > 1:
-        dets = md.compute_determinants(matrixes, number_of_threads)
-    else:
-        dets = matrix.determinants(matrixes)
-
-    # print(dets)
+    for pair in pairs:
+        print(pair.__str__())
 
 
 if __name__ == "__main__":

@@ -6,8 +6,8 @@ namespace dotnet
 {
     public class Matrix
     {
-        private static readonly int maxValue = 10000;
-        private static readonly int minValue = -10000;
+        private static readonly int maxValue = 9; // 10 000
+        private static readonly int minValue = -9; // -10 000
 
         public List<List<double>> Content { get; set; }
         public bool IsSquare { get => CheckIfIsSquare(); }
@@ -85,16 +85,6 @@ namespace dotnet
             }
 
             return newMatrix;
-        }
-
-        public static List<double> Determinants(IEnumerable<Matrix> matrixes)
-        {
-            List<double> determinants = new List<double>();
-            foreach (var matrix in matrixes)
-            {
-                determinants.Add(matrix.Determinant);
-            }
-            return determinants;
         }
 
         private double ComputeDeterminant()

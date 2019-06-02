@@ -25,15 +25,15 @@ int main(int argc, char** argv)
         matrixes.push_back(matrix);
     }
     
-    dets = Determinants(matrixes);    
+    // dets = Determinants(matrixes);    
 
-    for (int i = 0; i < matrixes.size(); i++)
-    {
-        std::cout << dets[i] << std::endl;
-        std::cout << matrixes[i].ToString() << std::endl;
-    }
+    // for (int i = 0; i < matrixes.size(); i++)
+    // {
+    //     std::cout << dets[i] << std::endl;
+    //     std::cout << matrixes[i].ToString() << std::endl;
+    // }
 
-    std::cout << "Now counter" << std::endl;
+    // std::cout << "Now counter" << std::endl;
 
     MatrixesListDeterminant matrixesCounter;
 
@@ -44,7 +44,8 @@ int main(int argc, char** argv)
     std::cout << "BACK IN MAIN:" << std::endl;
     for (int i = 0; i < pairs.size(); i++)
     {
-        std::cout << pairs[i].ToString() << std::endl;
+        // std::cout << pairs[i].ToString() << std::endl;
+        std::cout << pairs[i].detetminant << std::endl;
     }
 
 

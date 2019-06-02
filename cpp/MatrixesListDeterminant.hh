@@ -16,5 +16,5 @@ class MatrixesListDeterminant
 };
 
 std::vector<std::vector<Pair>> CreatePairs(std::vector<Matrix> matrixes, int parts);
-std::vector<Pair> MergePairs(std::vector<std::vector<Pair>> pairsLists);
+std::vector<Pair> MergePairs(std::vector<std::vector<Pair>>& pairsLists);
 #endif

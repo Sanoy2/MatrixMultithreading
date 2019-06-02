@@ -33,11 +33,15 @@ int main(int argc, char** argv)
         std::cout << matrixes[i].ToString() << std::endl;
     }
 
+    std::cout << "Now counter" << std::endl;
+
     MatrixesListDeterminant matrixesCounter;
 
     std::vector<Pair> pairs = matrixesCounter
         .ComputeDeterminantsMultithreading(matrixes, numberOfThreads);
 
+
+    std::cout << "BACK IN MAIN:" << std::endl;
     for (int i = 0; i < pairs.size(); i++)
     {
         std::cout << pairs[i].ToString() << std::endl;

@@ -1,6 +1,6 @@
 CXX = g++
 CXXFLAGS = -Wall -Werror -Wextra -pedantic -std=c++17 -g 
-LDFLAGS =  
+LDFLAGS = -pthread
 
 SRC = *.cpp
 OBJ = $(SRC:.cc=.o)

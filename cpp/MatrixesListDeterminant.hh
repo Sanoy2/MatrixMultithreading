@@ -1,8 +1,12 @@
 #ifndef MATRIXES_LIST_DETERMIMANT_HH
 #define MATRIXES_LIST_DETERMIMANT_HH
 
-#include "Pair.hh"
+#include <thread>
 #include <vector>
+    #include <iostream>
+#include "Pair.hh"
+
+void SayHello();
 
 class MatrixesListDeterminant
 {
@@ -11,4 +15,6 @@ class MatrixesListDeterminant
         std::vector<Pair> ComputeDeterminantsMultithreading(std::vector<Matrix>, int);
 };
 
+std::vector<std::vector<Pair>> CreatePairs(std::vector<Matrix> matrixes, int parts);
+std::vector<Pair> MergePairs(std::vector<std::vector<Pair>> pairsLists);
 #endif

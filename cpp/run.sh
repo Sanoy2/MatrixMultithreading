@@ -1,7 +1,7 @@
 #!/bin/bash
 
-matrixes=2
+matrixes=4
 dim=2
-numberOfThreads=1
+numberOfThreads=2
 
 ./a.out $matrixes $dim $numberOfThreads

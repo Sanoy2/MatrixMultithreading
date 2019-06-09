@@ -16,8 +16,8 @@ def main():
 
     pairs = mld.compute_determinants_multithreading(matrixes, number_of_threads)
 
-    for pair in pairs:
-        print(pair.__str__())
+    # for pair in pairs:
+    #     print(pair.__str__())
 
 
 if __name__ == "__main__":

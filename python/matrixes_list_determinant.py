@@ -4,7 +4,7 @@ from matrix import Matrix
 from pair import Pair
 
 def compute_determinants_multithreading(matrixes, number_of_threads):
-    print("{0} threads".format(number_of_threads))
+    # print("{0} threads".format(number_of_threads))
     if number_of_threads < 1:
         print("Number of threads lower than 1!")
         exit()
@@ -24,7 +24,6 @@ def compute_determinants_multithreading(matrixes, number_of_threads):
 
 
 def job(pairs):
-    print("Yom jest thread")
     for pair in pairs:
         pair.det = pair.matrix.determinant()
 

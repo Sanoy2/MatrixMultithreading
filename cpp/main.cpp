@@ -41,12 +41,12 @@ int main(int argc, char** argv)
         .ComputeDeterminantsMultithreading(matrixes, numberOfThreads);
 
 
-    std::cout << "BACK IN MAIN:" << std::endl;
-    for (int i = 0; i < pairs.size(); i++)
-    {
-        // std::cout << pairs[i].ToString() << std::endl;
-        std::cout << pairs[i].detetminant << std::endl;
-    }
+    // std::cout << "BACK IN MAIN:" << std::endl;
+    // for (int i = 0; i < pairs.size(); i++)
+    // {
+    //     // std::cout << pairs[i].ToString() << std::endl;
+    //     std::cout << pairs[i].detetminant << std::endl;
+    // }
 
 
     return 0;

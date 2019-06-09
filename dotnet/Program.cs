@@ -20,10 +20,10 @@ namespace dotnet
 
             var pairs = MatrixesListDeterminant.Determinants(matrixes, numberOfThreads);
             
-            foreach (var pair in pairs)
-            {
-                System.Console.WriteLine(pair.ToString());
-            }
+            // foreach (var pair in pairs)
+            // {
+            //     System.Console.WriteLine(pair.ToString());
+            // }
         }
     }
 }
